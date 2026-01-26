@@ -1,0 +1,147 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class InvoiceApp {
+    private static final Scanner sc;
+    private static final String DOUBLE_DASH_LINE;
+    private static final String SINGLE_DASH_LINE;
+
+    public InvoiceApp() {
+    }
+
+    private static double getDouble(String prompt) {
+        String userInput = "?";
+        double validInput = 0.0;
+
+        while(true) {
+            try {
+                System.out.print(prompt);
+                userInput = sc.nextLine();
+                validInput = Double.parseDouble(userInput);
+                return validInput;
+            } catch (Exception var5) {
+                System.out.println("Invalid input. Please try again...");
+            }
+        }
+    }
+
+    private static int getInteger(String prompt) {
+        String userInput = "?";
+        int validInput = false;
+
+        while(true) {
+            try {
+                System.out.print(prompt);
+                userInput = sc.nextLine();
+                int validInput = Integer.parseInt(userInput);
+                return validInput;
+            } catch (Exception var4) {
+                System.out.println("Invalid input. Please try again...");
+            }
+        }
+    }
+
+    private static String getString(String prompt) {
+        String userInput = "?";
+
+        while(true) {
+            System.out.print(prompt);
+            userInput = sc.nextLine();
+            if (!userInput.isEmpty()) {
+                return userInput;
+            }
+
+            System.out.println("Invalid input. Please try again...");
+        }
+    }
+
+    private static boolean getYesNo(String prompt) {
+        String userInput = "?";
+        boolean ynAnswer = false;
+
+        while(true) {
+            System.out.print(prompt);
+            userInput = sc.nextLine().toLowerCase();
+            if (userInput.equals("n")) {
+                break;
+            }
+
+            if (userInput.equals("y")) {
+                ynAnswer = true;
+                break;
+            }
+
+            System.out.println("Invalid input. Please try again...");
+        }
+
+        return ynAnswer;
+    }
+
+    private static void printReceipt(List<String> descriptionList, List<Integer> qtyList, List<Double> priceList) {
+        String description = "?";
+        int qty = false;
+        double price = 0.0;
+        double subTotal = 0.0;
+        double receiptTotal = 0.0;
+        System.out.println(DOUBLE_DASH_LINE);
+        System.out.println("Customer Receipt");
+        System.out.print(DOUBLE_DASH_LINE);
+
+        for(int i = 0; i < descriptionList.size(); ++i) {
+            description = (String)descriptionList.get(i);
+            int qty = (Integer)qtyList.get(i);
+            price = (Double)priceList.get(i);
+            subTotal = (double)qty * price;
+            System.out.println();
+            System.out.printf("%-20s  %3d  @  $%,6.2f = $%,8.2f\n", description, qty, price, subTotal);
+            receiptTotal += subTotal;
+        }
+
+        System.out.println(SINGLE_DASH_LINE);
+        System.out.printf("Receipt Total: $%,8.2f\n", receiptTotal);
+        System.out.println(SINGLE_DASH_LINE);
+    }
+
+    public static void main(String[] args) {
+        List<String> descriptionList = new ArrayList();
+        List<Integer> qtyList = new ArrayList();
+        List<Double> priceList = new ArrayList();
+        String description = "?";
+        int qty = false;
+        double price = 0.0;
+        boolean keepLooping = true;
+        System.out.println(DOUBLE_DASH_LINE);
+        System.out.println("Welcome to the Invoice Total Calculator");
+        System.out.println(DOUBLE_DASH_LINE);
+        System.out.println();
+
+        while(keepLooping) {
+            description = getString("Item Description: ");
+            int qty = getInteger("Item Quantity...: ");
+            price = getDouble("Item Price......: ");
+            descriptionList.add(description);
+            qtyList.add(qty);
+            priceList.add(price);
+            System.out.println();
+            System.out.println(SINGLE_DASH_LINE);
+            keepLooping = getYesNo("Do you want to enter another line item (y/n): ");
+            System.out.println(SINGLE_DASH_LINE);
+            System.out.println();
+        }
+
+        printReceipt(descriptionList, qtyList, priceList);
+        System.out.println("Thank you for shopping with us!");
+    }
+
+    static {
+        sc = new Scanner(System.in);
+        DOUBLE_DASH_LINE = String.format("%50s", "").replace(' ', '=');
+        SINGLE_DASH_LINE = DOUBLE_DASH_LINE.replace('=', '-');
+    }
+}
