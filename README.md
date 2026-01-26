@@ -1,1 +1,2 @@
 # JavaSection1_InvoiceApp
+STARTING THIS NOW FROM THE LAB COMPUTER
