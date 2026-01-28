@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author <Sanyam>
  * @version 1.0 <update this to version 2>
- * @link <Your GitHub Repository URL goes here>
+ * @link https://github.com/Starksood/JavaSection1_InvoiceApp
  */
 public class InvoiceApp {
     /**
@@ -129,11 +129,33 @@ public class InvoiceApp {
 
     } // end of getYesNo method
 
+    private static double discountTotal(double subTotal) {
+        double discountPercent = 0.0;
+
+        if (subTotal >= 50.0) {
+            discountPercent = 0.25;
+        } else if (subTotal >= 40.0) {
+            discountPercent = 0.20;
+        } else if (subTotal >= 30.0) {
+            discountPercent = 0.15;
+        } else if (subTotal >= 20.0) {
+            discountPercent = 0.10;
+        } else if (subTotal >= 10.0) {
+            discountPercent = 0.05;
+        } else {
+            discountPercent = 0.00;
+        }
+        return discountPercent;
+    }
+
+
+
     /**
      * Print the user's receipt
      * @param descriptionList All descriptions for items purchased
      * @param qtyList All qualities for items purchased
      * @param priceList All prices for items purchased
+     * @param discountList All Discounts for items purchased
      */
     private static void printReceipt(List<String> descriptionList, List<Integer> qtyList, List<Double> priceList) {
         String description = "?";
@@ -152,6 +174,7 @@ public class InvoiceApp {
             description = descriptionList.get(i);
             qty = qtyList.get(i);
             price = priceList.get(i);
+            discount =
 
             subTotal = qty * price;
 
@@ -163,6 +186,7 @@ public class InvoiceApp {
         } // end of for lop
 
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
+        System.out.printf("Total Savings: $%,8.2f\n", receiptTotal);
         System.out.printf("Receipt Total: $%,8.2f\n", receiptTotal);
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
 
