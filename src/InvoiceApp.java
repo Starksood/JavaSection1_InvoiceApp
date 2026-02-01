@@ -129,7 +129,7 @@ public class InvoiceApp {
 
     } // end of getYesNo method
 
-    private static double discountTotal(double subTotal) {
+    private static double getDiscountPercent(double subTotal) {
         double discountPercent = 0.0;
 
         if (subTotal >= 50.0) {
@@ -162,6 +162,9 @@ public class InvoiceApp {
         int qty = 0;
         double price = 0.0;
 
+        double discountPercent = 0.0;
+        double discountAmount = 0.0;
+        double savingsTotal = 0.0;
         double subTotal = 0.0;
         double receiptTotal = 0.0;
 
@@ -174,19 +177,39 @@ public class InvoiceApp {
             description = descriptionList.get(i);
             qty = qtyList.get(i);
             price = priceList.get(i);
-            discount =
 
             subTotal = qty * price;
 
             System.out.println();
             System.out.printf("%-20s  %3d  @  $%,6.2f = $%,8.2f\n", description, qty, price, subTotal);
+            discountPercent = InvoiceApp.getDiscountPercent(subTotal);
 
-            receiptTotal += subTotal;
+            if (discountPercent > 0.0) {
+
+                discountAmount = subTotal * discountPercent;
+
+                System.out.printf(
+                        "Discount %.0f%%   -$ %.2f = $ %.2f\n",
+                        discountPercent * 100,
+                        discountAmount,
+                        subTotal - discountAmount
+                );
+
+                savingsTotal += discountAmount;
+
+                subTotal -= discountAmount;
+                receiptTotal += subTotal;
+            }
+            if (savingsTotal > 0.0) {
+                System.out.printf("\nTotal Savings: $ %.2f\n", savingsTotal);
+
+            }
+
+
 
         } // end of for lop
 
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
-        System.out.printf("Total Savings: $%,8.2f\n", receiptTotal);
         System.out.printf("Receipt Total: $%,8.2f\n", receiptTotal);
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
 
