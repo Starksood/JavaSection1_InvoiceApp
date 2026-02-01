@@ -5,8 +5,8 @@ import java.util.Scanner;
 /**
  * Represents an Invoice Calculator.
  *
- * @author <Sanyam>
- * @version 1.0 <update this to version 2>
+ * @author Sanyam
+ * @version 2.0
  * @link https://github.com/Starksood/JavaSection1_InvoiceApp
  */
 public class InvoiceApp {
