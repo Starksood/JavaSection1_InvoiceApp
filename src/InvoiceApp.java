@@ -174,12 +174,12 @@ public class InvoiceApp {
             description = descriptionList.get(i);
             qty = qtyList.get(i);
             price = priceList.get(i);
-            discount =
+            discountTotal = discountList.get(i);
 
             subTotal = qty * price;
 
             System.out.println();
-            System.out.printf("%-20s  %3d  @  $%,6.2f = $%,8.2f\n", description, qty, price, subTotal);
+            System.out.printf("%-20s  %3d  @  $%,6.2f = $%,8.2f\n", description, qty, price, discountTotal, subTotal);
 
             receiptTotal += subTotal;
 
