@@ -170,9 +170,17 @@ public class InvoiceApp {
 
         System.out.println(InvoiceApp.DOUBLE_DASH_LINE);
         System.out.println("Customer Receipt");
-        System.out.print(InvoiceApp.DOUBLE_DASH_LINE);
+        System.out.println(InvoiceApp.DOUBLE_DASH_LINE);
 
         for (int i = 0; i < descriptionList.size(); i++) {
+
+            if (savingsTotal > 0.0) {
+                System.out.printf("\nTotal Savings: $ %.2f\n", savingsTotal);
+
+            }
+            System.out.println(InvoiceApp.SINGLE_DASH_LINE);
+            System.out.printf("Receipt Total: $%,8.2f\n", receiptTotal);
+            System.out.println(InvoiceApp.SINGLE_DASH_LINE);
 
             description = descriptionList.get(i);
             qty = qtyList.get(i);
@@ -196,14 +204,11 @@ public class InvoiceApp {
                 );
 
                 savingsTotal += discountAmount;
-
                 subTotal -= discountAmount;
-                receiptTotal += subTotal;
-            }
-            if (savingsTotal > 0.0) {
-                System.out.printf("\nTotal Savings: $ %.2f\n", savingsTotal);
 
             }
+            receiptTotal += subTotal;
+
 
 
 
