@@ -121,7 +121,8 @@ Thank you for shopping with us!
 ## 👤 Author
 
 **Sanyam Sood**
-GitHub: 
+GitHub: https://github.com/Starksood
+
 
 ---
 
