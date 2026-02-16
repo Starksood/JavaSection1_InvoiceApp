@@ -60,7 +60,6 @@ Discounts are automatically applied based on each item’s subtotal (quantity ×
 ---
 
 ## 🧾 Sample Output
-<img width-"1710" height="1107" alt="" src="https://github.com/Starksood/JavaSection1_InvoiceApp/blob/main/src/Assets/Screenshot%202026-02-16%20at%2012.25.25.png" />
 
 
 ### ✅ Receipt Example With Discount
@@ -83,7 +82,7 @@ Receipt Total: $ 649.99
 
 Thank you for shopping with us!
 ```
-<img width="1710" height="1107" alt="Screenshot 2026-02-01 at 11 33 44" src="[https://github.com/user-attachments/assets/86fc9cb4-5a05-4927-91b8-1889451d4f0d](https://github.com/Starksood/JavaSection1_InvoiceApp/blob/main/src/Assets/Screenshot%202026-02-16%20at%2012.25.25.png)" />
+<img width="1710" height="1107" alt="Screenshot 2026-02-01 at 11 33 44" src="https://github.com/Starksood/JavaSection1_InvoiceApp/blob/main/src/Assets/Screenshot%202026-02-16%20at%2012.25.25.png" />
 
 ---
 
