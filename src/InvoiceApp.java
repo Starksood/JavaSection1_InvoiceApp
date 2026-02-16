@@ -148,14 +148,13 @@ public class InvoiceApp {
         return discountPercent;
     }
 
-
-
     /**
      * Print the user's receipt
+     *
      * @param descriptionList All descriptions for items purchased
-     * @param qtyList All qualities for items purchased
-     * @param priceList All prices for items purchased
-     * @param discountList All Discounts for items purchased
+     * @param qtyList         All qualities for items purchased
+     * @param priceList       All prices for items purchased
+     * @param discountList    All Discounts for items purchased
      */
     private static void printReceipt(List<String> descriptionList, List<Integer> qtyList, List<Double> priceList) {
         String description = "?";
@@ -189,34 +188,37 @@ public class InvoiceApp {
                 discountAmount = subTotal * discountPercent;
 
                 System.out.printf(
-                        "Discount %.0f%%   -$ %.2f = $ %.2f\n",
+                        "%20s  %.0f%%    $%6.2f = $%,8.2f\n",
+                        "Discount",
                         discountPercent * 100,
                         discountAmount,
-                        subTotal - discountAmount
-                );
+                        subTotal - discountAmount);
 
                 savingsTotal += discountAmount;
 
                 subTotal -= discountAmount;
                 receiptTotal += subTotal;
             }
-            if (savingsTotal > 0.0) {
-                System.out.printf("\nTotal Savings: $ %.2f\n", savingsTotal);
-
-            }
-
 
 
         } // end of for lop
 
+
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
+        if (savingsTotal > 0.0) {
+            System.out.printf("\nTotal Savings: $%,8.2f\n", savingsTotal);
+
+        }
         System.out.printf("Receipt Total: $%,8.2f\n", receiptTotal);
         System.out.println(InvoiceApp.SINGLE_DASH_LINE);
+
 
     } // end of printReceipt method
 
     /**
-     * Prompt the user for the item description, quantity, and price. Keep looping until the user is done.
+     * Prompt the user for the item description, quantity, and price. Keep looping
+     * until the user is done.
+     *
      * @param args No runtime arguments are used for this program.
      */
     public static void main(String[] args) {
@@ -239,8 +241,8 @@ public class InvoiceApp {
         while (keepLooping) {
 
             description = InvoiceApp.getString("Item Description: ");
-            qty         = InvoiceApp.getInteger("Item Quantity...: ");
-            price       = InvoiceApp.getDouble("Item Price......: ");
+            qty = InvoiceApp.getInteger("Item Quantity...: ");
+            price = InvoiceApp.getDouble("Item Price......: ");
 
             descriptionList.add(description);
             qtyList.add(qty);
