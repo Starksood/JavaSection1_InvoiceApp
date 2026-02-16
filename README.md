@@ -60,6 +60,8 @@ Discounts are automatically applied based on each item’s subtotal (quantity ×
 ---
 
 ## 🧾 Sample Output
+<img width-"1710" height="1107" alt="" src="https://github.com/Starksood/JavaSection1_InvoiceApp/blob/main/src/Assets/Screenshot%202026-02-16%20at%2012.25.25.png" />
+
 
 ### ✅ Receipt Example With Discount
 
