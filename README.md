@@ -99,7 +99,7 @@ Receipt Total: $ 13.50
 
 Thank you for shopping with us!
 ```
-
+<img width="1710" height="1107" alt="" src="https://github.com/Starksood/JavaSection1_InvoiceApp/blob/main/src/Assets/Screenshot%202026-02-16%20at%2012.36.59.png" />
 ---
 
 ## 🆕 New Concepts Used
